@@ -142,3 +142,102 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+/* Participants section styling */
+.participants {
+  margin-top: 12px;
+  padding: 12px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.participants-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.participants-title {
+  font-weight: bold;
+  color: #1a237e;
+}
+
+.participants-count {
+  display: inline-block;
+  min-width: 28px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: #e8f0fe;
+  color: #1a237e;
+  font-size: 0.85rem;
+  text-align: center;
+  border: 1px solid #c5d3fb;
+}
+
+.participants-list {
+  list-style: disc inside;
+  margin-left: 4px;
+  color: #333;
+}
+
+.participants-list li {
+  margin: 4px 0;
+  word-break: break-word;
+}
+
+.no-participants {
+  color: #666;
+  font-style: italic;
+}
+
+/* Hide bullets & style participant rows */
+.participants-list {
+  list-style: none;       /* hide bullets */
+  padding-left: 0;        /* remove default UL padding */
+  margin: 0;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  margin: 6px 0;
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.participant-email {
+  color: #333;
+  word-break: break-word;
+}
+
+.delete-btn {
+  background: #ffe9e9;
+  color: #c62828;
+  border: 1px solid #ffc7c7;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.15s ease-in-out;
+}
+
+.delete-btn:hover {
+  background: #ffdadb;
+  color: #b71c1c;
+  border-color: #ffb2b2;
+}
+
+.delete-btn:active {
+  transform: scale(0.98);
+}
+
+.delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.2);
+}
