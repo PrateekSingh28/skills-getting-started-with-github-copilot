@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const activitiesList = document.getElementById("activities-list");
   const activitySelect = document.getElementById("activity");
@@ -20,11 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Build participants list HTML
+        const participantsListHTML =
+          details.participants && details.participants.length > 0
+            ? `<ul class="participants-list">
+                 ${details.participants.map((p) => `<li>${p}</li>`).join("")}
+               </ul>`
+            : `<p class="no-participants">No participants yet.</p>`;
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+
+          <div class="participants">
+            <div class="participants-header">
+              <span class="participants-title">Participants</span>
+              <span class="participants-count" title="Signed up">
+                ${details.participants.length}
+              </span>
+            </div>
+            ${participantsListHTML}
+          </div>
         `;
 
         activitiesList.appendChild(activityCard);
@@ -62,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        // Optionally refresh the list so the participants update visually
+        fetchActivities();
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
